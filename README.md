@@ -45,29 +45,6 @@ The AirBnB Clone Project is a backend system designed to replicate core AirBnB f
 - **Docker**: Containerization for consistent development and deployment.
 - **CI/CD Pipelines**: Automated testing and deployment workflows.
 
-## Team Roles
-The AirBnB Clone Project involves a collaborative team with specialized roles to ensure successful development, deployment, and maintenance of the backend system. Below are the key roles and their responsibilities:
-
-- **Backend Developer**:
-  - Designs and implements RESTful and GraphQL API endpoints for user, property, booking, payment, and review functionalities.
-  - Writes clean, maintainable code in Django, integrating business logic and ensuring scalability.
-  - Collaborates with frontend developers for seamless API integration.
-
-- **Database Administrator**:
-  - Designs and optimizes the PostgreSQL database schema to support complex relationships (e.g., users, properties, bookings).
-  - Implements indexing and query optimizations for efficient data retrieval.
-  - Manages database backups, security, and performance monitoring.
-
-- **DevOps Engineer**:
-  - Configures Docker containers for consistent development and production environments.
-  - Sets up CI/CD pipelines for automated testing, building, and deployment of code changes.
-  - Monitors system performance, scalability, and security in production.
-
-- **QA Engineer**:
-  - Develops and executes test plans to validate API functionality, performance, and security.
-  - Performs manual and automated testing using tools like Postman and pytest.
-  - Ensures the backend meets quality standards and user requirements before release.
-
 ## API Documentation
 - **REST API**: Documented using OpenAPI standard for users, properties, bookings, and payments.
 - **GraphQL API**: Flexible query interface for data retrieval and manipulation.
@@ -108,5 +85,31 @@ The AirBnB Clone Project involves a collaborative team with specialized roles to
 ## Additional Resources
 - [System Design for Hotel Booking Apps](https://example.com) *(Replace with actual link if available)*
 - [Software Development Team Structure](https://example.com) *(Replace with actual link if available)*
+
+
+
+
+## Team Roles
+The AirBnB Clone Project involves a collaborative team with specialized roles to ensure successful development, deployment, and maintenance of the backend system. Below are the key roles and their responsibilities:
+
+- **Backend Developer**:
+  - Designs and implements RESTful and GraphQL API endpoints for user, property, booking, payment, and review functionalities.
+  - Writes clean, maintainable code in Django, integrating business logic and ensuring scalability.
+  - Collaborates with frontend developers for seamless API integration.
+
+- **Database Administrator**:
+  - Designs and optimizes the PostgreSQL database schema to support complex relationships (e.g., users, properties, bookings).
+  - Implements indexing and query optimizations for efficient data retrieval.
+  - Manages database backups, security, and performance monitoring.
+
+- **DevOps Engineer**:
+  - Configures Docker containers for consistent development and production environments.
+  - Sets up CI/CD pipelines for automated testing, building, and deployment of code changes.
+  - Monitors system performance, scalability, and security in production.
+
+- **QA Engineer**:
+  - Develops and executes test plans to validate API functionality, performance, and security.
+  - Performs manual and automated testing using tools like Postman and pytest.
+  - Ensures the backend meets quality standards and user requirements before release.
 
 *This project demonstrates my expertise in backend development as part of my Prodev training, contributing to my vision of mastering scalable systems by October 2025.*
