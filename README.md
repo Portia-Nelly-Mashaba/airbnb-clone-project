@@ -201,3 +201,34 @@ The AirBnB Clone Project uses a PostgreSQL relational database to manage core en
 7. **Database Optimizations**:
    - **Indexing**: Fast retrieval for frequently accessed data.
    - **Caching**: Redis-based caching to reduce database load.
+
+## API Security
+To protect the AirBnB Clone backend APIs, several key security measures are implemented to ensure the integrity, confidentiality, and availability of the system. Below are the primary security measures and their importance to key areas of the project.
+
+### Key Security Measures
+1. **Authentication**  
+   - JSON Web Tokens (JWT) are used to authenticate users, ensuring only registered users can access protected endpoints like `/users/{user_id}/` or `/bookings/`.  
+   - **Importance**: Protects user data by verifying user identity, preventing unauthorized access to sensitive information such as personal profiles and booking history.
+
+2. **Authorization**  
+   - Role-based access control (RBAC) restricts actions based on user roles (e.g., guest, host, admin). For example, only hosts can modify their property listings via `/properties/{property_id}/`.  
+   - **Importance**: Ensures users can only perform actions they are permitted to, safeguarding property management and administrative functions from misuse.
+
+3. **Rate Limiting**  
+   - API rate limiting restricts the number of requests a user can make in a given time frame, applied to endpoints like `/properties/` to prevent abuse.  
+   - **Importance**: Protects the system from denial-of-service (DoS) attacks and ensures fair resource usage, maintaining performance for all users.
+
+4. **Data Encryption**  
+   - HTTPS is enforced for all API communications, and sensitive data like passwords are hashed using bcrypt. Payment transactions via `/payments/` use secure protocols to communicate with payment processors.  
+   - **Importance**: Secures payment processing and user data in transit and at rest, preventing data breaches and ensuring compliance with privacy standards.
+
+5. **Input Validation and Sanitization**  
+   - All inputs to endpoints (e.g., `/reviews/`, `/bookings/`) are validated and sanitized to prevent injection attacks like SQL injection or cross-site scripting (XSS).  
+   - **Importance**: Protects the database and review system from malicious inputs, ensuring data integrity and preventing unauthorized data manipulation.
+
+### Why Security is Crucial
+- **Protecting User Data**: Secure authentication and encryption safeguard sensitive user information (e.g., email, password) stored in the Users table, building trust and preventing identity theft.
+- **Securing Payments**: Encryption and secure payment protocols for the `/payments/` endpoint protect financial transactions, ensuring user funds and host earnings are safe from fraud.
+- **Safeguarding Property Listings**: Authorization ensures only verified hosts can manage listings, preventing unauthorized modifications or deletions that could disrupt the platform.
+- **Maintaining Review Integrity**: Input validation for the review system ensures genuine feedback, preserving trust and transparency for users making booking decisions.
+- **Ensuring System Availability**: Rate limiting and robust security measures protect the backend from attacks, ensuring consistent access to booking and property management features.
