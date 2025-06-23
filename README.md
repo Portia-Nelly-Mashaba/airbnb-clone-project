@@ -1,12 +1,12 @@
 # AirBnB Clone Project
 
 ## Overview
-The AirBnB Clone Project is a backend system designed to replicate core AirBnB functionalities, including user management, bookings, payments, and reviews. Built to be robust and scalable, it provides a seamless experience for users and hosts, showcasing expertise in backend development and API design.
+The AirBnB Clone Project is a backend system designed to replicate core AirBnB functionalities, including user management, property listings, bookings, payments, and reviews. Built to be robust and scalable, it provides a seamless experience for users and hosts, showcasing expertise in backend development and API design.
 
 ## Project Goals
 - **User Management**: Securely handle user registration, authentication, and profile management.
-- **Property Management**: Enables property management creation, updates, and retrieval of property listings.
-- **Booking concerns**: Facilitate property reservations and booking management.
+- **Property Management**: Enable creation, updates, and retrieval of property listings.
+- **Booking System**: Facilitate property reservations and booking management.
 - **Payment Processing**: Integrate secure transaction handling for bookings.
 - **Review System**: Allow users to post and manage property reviews.
 - **Data Optimization**: Optimize database performance through indexing and caching.
@@ -14,10 +14,10 @@ The AirBnB Clone Project is a backend system designed to replicate core AirBnB f
 ## Features Overview
 1. **API Documentation**:
    - **OpenAPI Standard**: Comprehensive documentation for RESTful APIs.
-   - **Django REST Framework**: Supports CRUD operations for users dwindles properties.
+   - **Django REST Framework**: Supports CRUD operations for users and properties.
    - **GraphQL**: Flexible querying for efficient data retrieval.
 2. **User Authentication**:
-   - Endpoints: `GET /users/`, `/users/{user_id}/`
+   - Endpoints: `/users/`, `/users/{user_id}/`
    - Features: Register, authenticate, and manage user profiles.
 3. **Property Management**:
    - Endpoints: `/properties/`, `/properties/{property_id}/`
@@ -44,6 +44,76 @@ The AirBnB Clone Project is a backend system designed to replicate core AirBnB f
 - **Redis**: Caching and session management.
 - **Docker**: Containerization for consistent development and deployment.
 - **CI/CD Pipelines**: Automated testing and deployment workflows.
+
+## Team Roles
+The AirBnB Clone Project involves a collaborative team with specialized roles to ensure successful development, deployment, and maintenance of the backend system. Below are the key roles and their responsibilities:
+
+- **Backend Developer**:
+  - Designs and implements RESTful and GraphQL API endpoints for user, property, booking, payment, and review functionalities.
+  - Writes clean, maintainable code in Django, integrating business logic and ensuring scalability.
+  - Collaborates with frontend developers for seamless API integration.
+
+- **Database Administrator**:
+  - Designs and optimizes the PostgreSQL database schema to support complex relationships (e.g., users, properties, bookings).
+  - Implements indexing and query optimizations for efficient data retrieval.
+  - Manages database backups, security, and performance monitoring.
+
+- **DevOps Engineer**:
+  - Configures Docker containers for consistent development and production environments.
+  - Sets up CI/CD pipelines for automated testing, building, and deployment of code changes.
+  - Monitors system performance, scalability, and security in production.
+
+- **QA Engineer**:
+  - Develops and executes test plans to validate API functionality, performance, and security.
+  - Performs manual and automated testing using tools like Postman and pytest.
+  - Ensures the backend meets quality standards and user requirements before release.
+
+## Database Design
+The AirBnB Clone Project uses a PostgreSQL relational database to manage core entities: Users, Properties, Bookings, Reviews, and Payments. Below are the key entities, their important fields, and their relationships.
+
+### Entities and Fields
+- **Users**
+  - `id`: Unique identifier (Primary Key).
+  - `email`: User’s email address (unique, required).
+  - `password_hash`: Securely hashed password.
+  - `name`: Full name of the user.
+  - `role`: User type (e.g., guest, host, admin).
+  
+- **Properties**
+  - `id`: Unique identifier (Primary Key).
+  - `title`: Property name or headline (e.g., “Cozy Apartment”).
+  - `description`: Detailed property description.
+  - `price_per_night`: Cost per night (decimal).
+  - `owner_id`: Foreign Key referencing Users(id).
+
+- **Bookings**
+  - `id`: Unique identifier (Primary Key).
+  - `property_id`: Foreign Key referencing Properties(id).
+  - `user_id`: Foreign Key referencing Users(id).
+  - `check_in_date`: Start date of booking.
+  - `check_out_date`: End date of booking.
+
+- **Reviews**
+  - `id`: Unique identifier (Primary Key).
+  - `property_id`: Foreign Key referencing Properties(id).
+  - `user_id`: Foreign Key referencing Users(id).
+  - `rating`: Numerical rating (1–5).
+  - `comment`: Text review of the property.
+
+- **Payments**
+  - `id`: Unique identifier (Primary Key).
+  - `booking_id`: Foreign Key referencing Bookings(id).
+  - `amount`: Payment amount (decimal).
+  - `status`: Payment status (e.g., pending, completed).
+  - `transaction_id`: Unique identifier from payment processor.
+
+### Relationships
+- **Users and Properties**: A User (host) can own multiple Properties (one-to-many). The `owner_id` in Properties links to Users(id).
+- **Properties and Bookings**: A Property can have multiple Bookings (one-to-many). The `property_id` in Bookings links to Properties(id).
+- **Users and Bookings**: A User (guest) can make multiple Bookings (one-to-many). The `user_id` in Bookings links to Users(id).
+- **Properties and Reviews**: A Property can have multiple Reviews (one-to-many). The `property_id` in Reviews links to Properties(id).
+- **Users and Reviews**: A User can write multiple Reviews (one-to-many). The `user_id` in Reviews links to Users(id).
+- **Bookings and Payments**: A Booking has one Payment (one-to-one). The `booking_id` in Payments links to Bookings(id).
 
 ## API Documentation
 - **REST API**: Documented using OpenAPI standard for users, properties, bookings, and payments.
@@ -86,30 +156,51 @@ The AirBnB Clone Project is a backend system designed to replicate core AirBnB f
 - [System Design for Hotel Booking Apps](https://example.com) *(Replace with actual link if available)*
 - [Software Development Team Structure](https://example.com) *(Replace with actual link if available)*
 
-
-
-
-## Team Roles
-The AirBnB Clone Project involves a collaborative team with specialized roles to ensure successful development, deployment, and maintenance of the backend system. Below are the key roles and their responsibilities:
-
-- **Backend Developer**:
-  - Designs and implements RESTful and GraphQL API endpoints for user, property, booking, payment, and review functionalities.
-  - Writes clean, maintainable code in Django, integrating business logic and ensuring scalability.
-  - Collaborates with frontend developers for seamless API integration.
-
-- **Database Administrator**:
-  - Designs and optimizes the PostgreSQL database schema to support complex relationships (e.g., users, properties, bookings).
-  - Implements indexing and query optimizations for efficient data retrieval.
-  - Manages database backups, security, and performance monitoring.
-
-- **DevOps Engineer**:
-  - Configures Docker containers for consistent development and production environments.
-  - Sets up CI/CD pipelines for automated testing, building, and deployment of code changes.
-  - Monitors system performance, scalability, and security in production.
-
-- **QA Engineer**:
-  - Develops and executes test plans to validate API functionality, performance, and security.
-  - Performs manual and automated testing using tools like Postman and pytest.
-  - Ensures the backend meets quality standards and user requirements before release.
-
 *This project demonstrates my expertise in backend development as part of my Prodev training, contributing to my vision of mastering scalable systems by October 2025.*
+
+## Database Design
+The AirBnB Clone Project uses a PostgreSQL relational database to manage core entities: Users, Properties, Bookings, Reviews, and Payments. Below are the key entities, their important fields, and their relationships.
+
+### Entities and Fields
+- **Users**
+  - `id`: Unique identifier (Primary Key).
+  - `email`: User’s email address (unique, required).
+  - `password_hash`: Securely hashed password.
+  - `name`: Full name of the user.
+  - `role`: User type (e.g., guest, host, admin).
+  
+- **Properties**
+  - `id`: Unique identifier (Primary Key).
+  - `title`: Property name or headline (e.g., “Cozy Apartment”).
+  - `description`: Detailed property description.
+  - `price_per_night`: Cost per night (decimal).
+  - `owner_id`: Foreign Key referencing Users(id).
+
+- **Bookings**
+  - `id`: Unique identifier (Primary Key).
+  - `property_id`: Foreign Key referencing Properties(id).
+  - `user_id`: Foreign Key referencing Users(id).
+  - `check_in_date`: Start date of booking.
+  - `check_out_date`: End date of booking.
+
+- **Reviews**
+  - `id`: Unique identifier (Primary Key).
+  - `property_id`: Foreign Key referencing Properties(id).
+  - `user_id`: Foreign Key referencing Users(id).
+  - `rating`: Numerical rating (1–5).
+  - `comment`: Text review of the property.
+
+- **Payments**
+  - `id`: Unique identifier (Primary Key).
+  - `booking_id`: Foreign Key referencing Bookings(id).
+  - `amount`: Payment amount (decimal).
+  - `status`: Payment status (e.g., pending, completed).
+  - `transaction_id`: Unique identifier from payment processor.
+
+### Relationships
+- **Users and Properties**: A User (host) can own multiple Properties (one-to-many). The `owner_id` in Properties links to Users(id).
+- **Properties and Bookings**: A Property can have multiple Bookings (one-to-many). The `property_id` in Bookings links to Properties(id).
+- **Users and Bookings**: A User (guest) can make multiple Bookings (one-to-many). The `user_id` in Bookings links to Users(id).
+- **Properties and Reviews**: A Property can have multiple Reviews (one-to-many). The `property_id` in Reviews links to Properties(id).
+- **Users and Reviews**: A User can write multiple Reviews (one-to-many). The `user_id` in Reviews links to Users(id).
+- **Bookings and Payments**: A Booking has one Payment (one-to-one). The `booking_id` in Payments links to Bookings(id).
