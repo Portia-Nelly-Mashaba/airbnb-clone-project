@@ -1,12 +1,12 @@
 # AirBnB Clone Project
 
 ## Overview
-The AirBnB Clone Project is a backend system designed to replicate core AirBnB functionalities, including user management, property listings, bookings, payments, and reviews. Built to be robust and scalable, it provides a seamless experience for users and hosts, showcasing expertise in backend development and API design.
+The AirBnB Clone Project is a backend system designed to replicate core AirBnB functionalities, including user management, bookings, payments, and reviews. Built to be robust and scalable, it provides a seamless experience for users and hosts, showcasing expertise in backend development and API design.
 
 ## Project Goals
 - **User Management**: Securely handle user registration, authentication, and profile management.
-- **Property Management**: Enable creation, updates, and retrieval of property listings.
-- **Booking System**: Facilitate property reservations and booking management.
+- **Property Management**: Enables property management creation, updates, and retrieval of property listings.
+- **Booking concerns**: Facilitate property reservations and booking management.
 - **Payment Processing**: Integrate secure transaction handling for bookings.
 - **Review System**: Allow users to post and manage property reviews.
 - **Data Optimization**: Optimize database performance through indexing and caching.
@@ -14,10 +14,10 @@ The AirBnB Clone Project is a backend system designed to replicate core AirBnB f
 ## Features Overview
 1. **API Documentation**:
    - **OpenAPI Standard**: Comprehensive documentation for RESTful APIs.
-   - **Django REST Framework**: Supports CRUD operations for users and properties.
+   - **Django REST Framework**: Supports CRUD operations for users dwindles properties.
    - **GraphQL**: Flexible querying for efficient data retrieval.
 2. **User Authentication**:
-   - Endpoints: `/users/`, `/users/{user_id}/`
+   - Endpoints: `GET /users/`, `/users/{user_id}/`
    - Features: Register, authenticate, and manage user profiles.
 3. **Property Management**:
    - Endpoints: `/properties/`, `/properties/{property_id}/`
@@ -46,10 +46,27 @@ The AirBnB Clone Project is a backend system designed to replicate core AirBnB f
 - **CI/CD Pipelines**: Automated testing and deployment workflows.
 
 ## Team Roles
-- **Backend Developer**: Implements API endpoints, schemas, and business logic.
-- **Database Administrator**: Designs and optimizes database structures.
-- **DevOps Engineer**: Manages deployment, monitoring, and scaling.
-- **QA Engineer**: Ensures functionality and quality through rigorous testing.
+The AirBnB Clone Project involves a collaborative team with specialized roles to ensure successful development, deployment, and maintenance of the backend system. Below are the key roles and their responsibilities:
+
+- **Backend Developer**:
+  - Designs and implements RESTful and GraphQL API endpoints for user, property, booking, payment, and review functionalities.
+  - Writes clean, maintainable code in Django, integrating business logic and ensuring scalability.
+  - Collaborates with frontend developers for seamless API integration.
+
+- **Database Administrator**:
+  - Designs and optimizes the PostgreSQL database schema to support complex relationships (e.g., users, properties, bookings).
+  - Implements indexing and query optimizations for efficient data retrieval.
+  - Manages database backups, security, and performance monitoring.
+
+- **DevOps Engineer**:
+  - Configures Docker containers for consistent development and production environments.
+  - Sets up CI/CD pipelines for automated testing, building, and deployment of code changes.
+  - Monitors system performance, scalability, and security in production.
+
+- **QA Engineer**:
+  - Develops and executes test plans to validate API functionality, performance, and security.
+  - Performs manual and automated testing using tools like Postman and pytest.
+  - Ensures the backend meets quality standards and user requirements before release.
 
 ## API Documentation
 - **REST API**: Documented using OpenAPI standard for users, properties, bookings, and payments.
