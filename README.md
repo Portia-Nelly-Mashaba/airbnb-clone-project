@@ -232,3 +232,22 @@ To protect the AirBnB Clone backend APIs, several key security measures are impl
 - **Safeguarding Property Listings**: Authorization ensures only verified hosts can manage listings, preventing unauthorized modifications or deletions that could disrupt the platform.
 - **Maintaining Review Integrity**: Input validation for the review system ensures genuine feedback, preserving trust and transparency for users making booking decisions.
 - **Ensuring System Availability**: Rate limiting and robust security measures protect the backend from attacks, ensuring consistent access to booking and property management features.
+
+## CI/CD Pipeline
+Continuous Integration and Continuous Deployment (CI/CD) pipelines automate the process of testing, building, and deploying code changes, ensuring high-quality software delivery. They are critical for the AirBnB Clone Project to maintain rapid development cycles, reduce errors, and ensure consistent environments across development, testing, and production.
+
+### What are CI/CD Pipelines?
+- **Continuous Integration (CI)**: Automatically tests and integrates code changes into a shared repository, catching bugs early through automated unit, integration, and API tests.
+- **Continuous Deployment (CD)**: Automatically deploys validated code to production or staging environments, ensuring reliable and frequent releases.
+
+### Importance of CI/CD Pipeline for the Project
+- **Improved Code Quality**: Automated tests (e.g., using pytest for Django APIs) catch issues early, ensuring robust user management, booking, and payment functionalities.
+- **Faster Development**: CI/CD reduces manual effort, allowing developers to focus on implementing features like property management and review systems.
+- **Consistency**: Docker containers in CI/CD pipelines ensure identical environments, preventing deployment issues for services like PostgreSQL and Redis.
+- **Reliability**: Automated deployments minimize human errors, ensuring stable releases of critical endpoints like `/payments/` and `/bookings/`.
+
+### Tools Used
+- **GitHub Actions**: Automates CI/CD workflows, running tests and deploying code to staging or production upon successful builds.
+- **Docker**: Creates consistent containerized environments for running Django, PostgreSQL, and Redis services during testing and deployment.
+- **pytest**: Executes automated tests for REST and GraphQL APIs, validating endpoints like `/users/` and `/properties/`.
+- **Celery**: Supports asynchronous task testing in CI pipelines, ensuring reliable notification and payment processing.
